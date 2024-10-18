@@ -1,0 +1,9 @@
+{
+  "name": "@veora-ui/utils",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts",
+  "peerDependencies": {
+    "vue": "3.5.12"
+  }
+}

@@ -3,14 +3,8 @@
   <!-- <el-config-provider namespace="ep"> -->
   <div class="play-container">
     test
-    <!-- <el-icon color="#409EFC">
-      <el-icon-check />
-    </el-icon>
-    <el-icon>
-      <el-icon-menu />
-    </el-icon>
-    <el-link type="success">test</el-link>
-    <div v-loading="true" /> -->
+    <eo-icon>122
+    </eo-icon>
   </div>
   <!-- </el-config-provider> -->
 </template>

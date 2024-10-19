@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@veora-ui/cheme-chalk':
+        specifier: workspace:*
+        version: link:packages/cheme-chalk
+      '@veora-ui/components':
+        specifier: workspace:*
+        version: link:packages/components
+      '@veora-ui/utils':
+        specifier: workspace:*
+        version: link:packages/utils
     devDependencies:
       typescript:
         specifier: ^5.6.3

@@ -1,5 +1,5 @@
 <template>
-<i :class="ns.b()" :style="style" v-bind="$attrs">
+<i  :style="style" v-bind="$attrs">
     <slot />
   </i>
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { addUnit, isUndefined } from '@veora-ui/utils'
-import { useNamespace } from '@veora-ui/hooks'
+// import { useNamespace } from '@veora-ui/hooks'
 import { iconProps } from './icon'
 import type { CSSProperties } from 'vue'
 
@@ -16,7 +16,7 @@ defineOptions({
   inheritAttrs: false,
 })
 const props = defineProps(iconProps)
-const ns = useNamespace('icon')
+// const ns = useNamespace('icon')
 
 const style = computed<CSSProperties>(() => {
   const { size, color } = props
@@ -29,7 +29,7 @@ const style = computed<CSSProperties>(() => {
 })
 </script>
 <style>
-i{
+.i{
     color: red;
 }
 </style>

@@ -16,5 +16,10 @@
   "devDependencies": {
     "typescript": "^5.6.3",
     "vue": "3.5.12"
+  },
+  "dependencies": {
+    "@veora-ui/components": "workspace:*",
+    "@veora-ui/cheme-chalk": "workspace:*",
+    "@veora-ui/utils": "workspace:*"
   }
 }

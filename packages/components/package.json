@@ -1,0 +1,28 @@
+{
+  "name": "veora-ui",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./ui/lib/index.js",
+  "module": "./ui/es/index.js",
+  "files": [
+    "ui"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.9",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "sass": "^1.80.3",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.9",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vue-tsc": "^2.1.6"
+  }
+}

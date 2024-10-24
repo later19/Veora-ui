@@ -3,8 +3,8 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
-  "main": "./ui/lib/index.js",
-  "module": "./ui/es/index.js",
+  "main": "index.ts",
+  "module": "index.ts",
   "files": [
     "ui"
   ],

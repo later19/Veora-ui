@@ -1,5 +1,5 @@
 import VButton from './button'
+import VIcon from './icon'
+export { VButton, VIcon }
 
-export { VButton }
-
-export default [VButton]
+export default [VButton, VIcon]

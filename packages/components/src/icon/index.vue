@@ -1,15 +1,11 @@
 <template>
-  <span
-    class="icon"
-    :style="{ width: size + 'px', color: color }"
-    v-bind="$attrs"
-  >
+  <i class="icon" :style="{ width: size + 'px', color: color }" v-bind="$attrs">
     <component :is="iconComponent" :fill="color" aria-hidden="true" />
-  </span>
+  </i>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, watchEffect } from 'vue'
 
 // 定义 props
 const props = withDefaults(
@@ -24,34 +20,25 @@ const props = withDefaults(
   },
 )
 
-// iconComponent 存储加载的 SVG 组件
+// 动态加载 SVG 文件的方法
+// 用 ref 存储加载后的图标组件
 const iconComponent = ref<null | any>(null)
 
-// 动态加载 SVG 文件的方法
-const loadIcon = async (iconName: string) => {
+// 监听 props.name 的变化，并动态加载图标
+watchEffect(async () => {
+  if (!props.name) {
+    iconComponent.value = null
+    return
+  }
+
   try {
-    console.log(`Loading icon: ${iconName}`) // 调试信息
-    const module = await import(`./svg/${iconName}.svg`)
+    const module = await import(`./svg/${props.name}.svg`)
     iconComponent.value = module.default
-    console.log('Icon loaded:', iconComponent.value) // 调试信息
   } catch (error) {
-    console.error(`Failed to load icon: ${iconName}`, error)
+    console.error(`Failed to load icon: ${props.name}`, error)
     iconComponent.value = null
   }
-}
-
-// 在组件挂载时加载图标
-onMounted(() => {
-  loadIcon(props.name)
 })
-
-// 监控图标名称变化，并重新加载图标
-watch(
-  () => props.name,
-  (newName) => {
-    loadIcon(newName)
-  },
-)
 </script>
 
 <style lang="scss" scoped>

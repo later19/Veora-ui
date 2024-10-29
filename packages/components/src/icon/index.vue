@@ -1,7 +1,7 @@
 <template>
   <span
     class="icon"
-    :style="{ width: size + 'px', background: color }"
+    :style="{ width: size + 'px', color: color }"
     v-bind="$attrs"
   >
     <component :is="iconComponent" :fill="color" aria-hidden="true" />

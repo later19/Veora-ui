@@ -1,1 +1,14 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="icon" width="200px" height="200.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF0F5" d="M885.333333 756.906667a52.906667 52.906667 0 0 1-37.546666-15.36L512 406.613333l-334.08 334.933334a53.333333 53.333333 0 0 1-75.52-75.52l372.906667-372.48a54.186667 54.186667 0 0 1 75.093333 0l372.906667 372.48a53.333333 53.333333 0 0 1 0 75.52 54.613333 54.613333 0 0 1-37.973334 15.36z" /></svg>
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
+  class="icon"
+  width="200px"
+  height="200.00px"
+  viewBox="0 0 1024 1024"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+><path
+    fill="currentColor"
+    d="M885.333333 756.906667a52.906667 52.906667 0 0 1-37.546666-15.36L512 406.613333l-334.08 334.933334a53.333333 53.333333 0 0 1-75.52-75.52l372.906667-372.48a54.186667 54.186667 0 0 1 75.093333 0l372.906667 372.48a53.333333 53.333333 0 0 1 0 75.52 54.613333 54.613333 0 0 1-37.973334 15.36z"
+  /></svg>

@@ -1,5 +1,7 @@
 @use '../../style/globals.scss' as g;
-.button {
+
+// 提取公共按钮样式
+%button-base {
     border-radius: 4px;
     padding: 8px 16px;
     font-size: 16px;
@@ -8,7 +10,11 @@
     margin: 2px 6px;
     box-sizing: border-box;
     background-color: #fff;
-    &-default{
+}
+
+.button {
+    @extend %button-base;
+    &-default {
         color: g.$default-text;
         border-color: g.$default;
     }
@@ -16,29 +22,54 @@
         background-color: g.$success;
         color: g.$success-text;
         border-color: g.$success;
+        &.is-plain {
+            color: g.$success;
+        }
     }
-
     &-primary {
         background-color: g.$primary;
         color: g.$success-text;
         border-color: g.$primary;
+        &.is-plain {
+            color: g.$primary;
+        }
     }
     &-error {
         background-color: g.$error;
         color: g.$success-text;
         border-color: g.$error;
+        &.is-plain {
+            color: g.$error;
+        }
     }
-    &.is-plain{
+    &-warning {
+        background-color: g.$warning;
+        color: g.$success-text;
+        border-color: g.$warning;
+        &.is-plain {
+            color: g.$warning;
+        }
+    }
+    &-info {
+        background-color: g.$info;
+        color: g.$success-text;
+        border-color: g.$info;
+        &.is-plain {
+            color: g.$info;
+        }
+    }
+    &.is-plain {
         background-color: #fff;
-        color: g.$success;
     }
     &.is-round {
         border-radius: 16px;
     }
-    &.is-disabled{
+    &.is-disabled {
         cursor: not-allowed;
         background-image: none;
-        background-color: g.$button-disabled-bg-color;
-        border-color: g.$button-disabled-border-color;
+        color: g.$success-text;
+        filter: brightness(80%);
+        // background-color:darken(#f0f0f0, 30%);
+        // border-color: g.$button-disabled-border-color;
     }
 }

@@ -1,5 +1,13 @@
 <template>
-  <button class="button" :class="typeClass">
+  <button
+    class="button"
+    :class="[
+      typeClass,
+      { 'is-plain': plain },
+      { 'is-round': round },
+      { 'is-circle': circle },
+    ]"
+  >
     <slot></slot>
   </button>
 </template>
@@ -11,25 +19,22 @@ const props = defineProps({
     type: String,
     default: 'default',
   },
+  plain: {
+    type: Boolean,
+    default: false,
+  },
+  round: {
+    type: Boolean,
+    default: false,
+  },
+  circle: {
+    type: Boolean,
+    default: false,
+  },
 })
 const typeClass = computed(() => `button-${props.type}`)
 </script>
 
 <style lang="scss" scoped>
-.button {
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &-default {
-    background-color: #eee;
-    color: #333;
-  }
-
-  &-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
-}
+@import url(./style/index.scss);
 </style>

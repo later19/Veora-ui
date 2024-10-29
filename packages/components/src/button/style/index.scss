@@ -1,0 +1,38 @@
+@use '../../style/globals.scss' as g;
+.button {
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid;
+    margin: 2px 6px;
+    box-sizing: border-box;
+    background-color: #fff;
+    &-default{
+        color: g.$defult;
+        border-color: g.$defult;
+    }
+    &-success {
+        background-color: g.$success;
+        color: g.$success-text;
+        border-color: g.$success;
+    }
+
+    &-primary {
+        background-color: g.$primary;
+        color: g.$success-text;
+        border-color: g.$primary;
+    }
+    &-error {
+        background-color: g.$error;
+        color: g.$success-text;
+        border-color: g.$error;
+    }
+    &.is-plain{
+        background-color: #fff;
+        color: g.$success;
+    }
+    &.is-round {
+        border-radius: 16px;
+    }
+}

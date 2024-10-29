@@ -1,63 +1,71 @@
 <template>
   <span
     class="icon"
-    :style="{ fontSize: size + 'px', color: color }"
+    :style="{ width: size + 'px', background: color }"
     v-bind="$attrs"
   >
-    <component :is="iconComponent" v-if="iconComponent" aria-hidden="true" />
-    <span v-else class="icon-error">Icon Not Found</span>
+    <component :is="iconComponent" :fill="color" aria-hidden="true" />
   </span>
 </template>
 
-<script name="VButton" lang="ts" setup>
-import { ref, watch } from 'vue'
+<script lang="ts" setup>
+import { ref, watch, onMounted } from 'vue'
 
-const props = defineProps({
-  name: {
-    type: String,
-    required: true,
+// 定义 props
+const props = withDefaults(
+  defineProps<{
+    name: string
+    size?: string
+    color?: string
+  }>(),
+  {
+    size: '18',
+    color: 'blue',
   },
-  size: {
-    type: String,
-    default: '13',
-  },
-  color: {
-    type: String,
-    default: 'default',
-  },
-})
+)
 
-// 使用 ref 来存储动态导入的图标组件
-const iconComponent = ref(null)
+// iconComponent 存储加载的 SVG 组件
+const iconComponent = ref<null | any>(null)
 
-// 定义一个函数来动态导入 SVG 图标
-const loadIcon = async (iconName) => {
+// 动态加载 SVG 文件的方法
+const loadIcon = async (iconName: string) => {
   try {
-    // 动态导入 SVG 图标，并使用 default 获取组件
+    console.log(`Loading icon: ${iconName}`) // 调试信息
     const module = await import(`./svg/${iconName}.svg`)
-    iconComponent.value = module.default // 确保使用 default
-    console.log(iconComponent.value)
-  } catch (e) {
-    // console.error(e)
-    console.error(`Icon "${iconName}" not found.`)
-    iconComponent.value = null // 如果找不到图标，设置为 null
+    iconComponent.value = module.default
+    console.log('Icon loaded:', iconComponent.value) // 调试信息
+  } catch (error) {
+    console.error(`Failed to load icon: ${iconName}`, error)
+    iconComponent.value = null
   }
 }
 
-// 监视 props.name 的变化
+// 在组件挂载时加载图标
+onMounted(() => {
+  loadIcon(props.name)
+})
+
+// 监控图标名称变化，并重新加载图标
 watch(
   () => props.name,
   (newName) => {
-    loadIcon(newName) // 调用加载图标的函数
+    loadIcon(newName)
   },
-  { immediate: true },
-) // immediate: true 在组件初始时也会执行
-
-// 在组件初始化时加载图标
-loadIcon(props.name) // 组件挂载时加载初始图标
+)
 </script>
 
 <style lang="scss" scoped>
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
+}
 .icon-error {
   color: red;
 }

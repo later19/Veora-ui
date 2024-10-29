@@ -6,7 +6,7 @@ import { VButton, VIcon } from 'veora-ui'
   <div>
     <v-button type="default">Button Default</v-button>
     <v-button type="primary">Button Primary</v-button>
-    <v-icon name="cangku"></v-icon>
+    <v-icon name="caozuo-gengduo"></v-icon>
   </div>
 </template>
 

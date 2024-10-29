@@ -6,6 +6,7 @@
       { 'is-plain': plain },
       { 'is-round': round },
       { 'is-circle': circle },
+      { 'is-disabled': disabled },
     ]"
   >
     <slot></slot>
@@ -28,6 +29,10 @@ const props = defineProps({
     default: false,
   },
   circle: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },

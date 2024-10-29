@@ -17,7 +17,7 @@ import { VButton, VIcon } from 'veora-ui'
     <div>
       <v-button type="default" round>Button success</v-button>
       <v-button type="success" round>Button success</v-button>
-      <v-button type="error" round>Button success</v-button>
+      <v-button type="error" disabled round>Button success</v-button>
     </div>
     <v-icon name="caozuo-gengduo"></v-icon>
     <v-icon name="shuju"></v-icon>

@@ -9,8 +9,8 @@
     box-sizing: border-box;
     background-color: #fff;
     &-default{
-        color: g.$defult;
-        border-color: g.$defult;
+        color: g.$default-text;
+        border-color: g.$default;
     }
     &-success {
         background-color: g.$success;
@@ -34,5 +34,11 @@
     }
     &.is-round {
         border-radius: 16px;
+    }
+    &.is-disabled{
+        cursor: not-allowed;
+        background-image: none;
+        background-color: g.$button-disabled-bg-color;
+        border-color: g.$button-disabled-border-color;
     }
 }

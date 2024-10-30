@@ -18,13 +18,27 @@ import { VButton, VIcon } from 'veora-ui'
       <v-button type="warning" plain>Button success</v-button>
       <v-button type="info" plain>Button success</v-button>
     </div>
-    
+
     <div>
       <v-button type="default" round>Button success</v-button>
       <v-button type="success" round>Button success</v-button>
       <v-button type="error" disabled round>Button success</v-button>
       <v-button type="warning" round>Button success</v-button>
       <v-button type="info" disabled round>Button success</v-button>
+    </div>
+    <div>
+      <v-button type="default" link>Button success</v-button>
+      <v-button type="success" link>Button success</v-button>
+      <v-button type="error" link>Button success</v-button>
+      <v-button type="warning" disabled link>Button success</v-button>
+      <v-button type="info" disabled link>Button success</v-button>
+    </div>
+    <div>
+      <v-button type="default">Button success</v-button>
+      <v-button type="primary" size="small">Button Primary</v-button>
+      <v-button type="error" size="large">Button Primary</v-button>
+      <v-button type="warning">Button Primary</v-button>
+      <v-button type="info">Button Primary</v-button>
     </div>
     <v-icon name="caozuo-gengduo"></v-icon>
     <v-icon name="shuju"></v-icon>

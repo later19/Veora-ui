@@ -2,74 +2,141 @@
 
 // 提取公共按钮样式
 %button-base {
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    border: 1px solid;
-    margin: 2px 6px;
-    box-sizing: border-box;
-    background-color: #fff;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid;
+  margin: 2px 6px;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .button {
-    @extend %button-base;
-    &-default {
-        color: g.$default-text;
-        border-color: g.$default;
-    }
-    &-success {
-        background-color: g.$success;
-        color: g.$success-text;
-        border-color: g.$success;
-        &.is-plain {
-            color: g.$success;
-        }
-    }
-    &-primary {
-        background-color: g.$primary;
-        color: g.$success-text;
-        border-color: g.$primary;
-        &.is-plain {
-            color: g.$primary;
-        }
-    }
-    &-error {
-        background-color: g.$error;
-        color: g.$success-text;
-        border-color: g.$error;
-        &.is-plain {
-            color: g.$error;
-        }
-    }
-    &-warning {
-        background-color: g.$warning;
-        color: g.$success-text;
-        border-color: g.$warning;
-        &.is-plain {
-            color: g.$warning;
-        }
-    }
-    &-info {
-        background-color: g.$info;
-        color: g.$success-text;
-        border-color: g.$info;
-        &.is-plain {
-            color: g.$info;
-        }
-    }
+  @extend %button-base;
+  &-large {
+    padding: 12px 19px;
+    font-size: 14px;
+  }
+  &-small {
+    padding: 5px 11px;
+    font-size: 12px;
+  }
+  &-default {
+    color: g.$default-text;
+    border-color: g.$default;
     &.is-plain {
-        background-color: #fff;
+      color: g.$default-text;
     }
-    &.is-round {
-        border-radius: 16px;
+    &.is-plain:hover {
+      color: #fff;
+      background-color: g.$default-text;
     }
-    &.is-disabled {
-        cursor: not-allowed;
-        background-image: none;
-        color: g.$success-text;
-        filter: brightness(80%);
-        // background-color:darken(#f0f0f0, 30%);
-        // border-color: g.$button-disabled-border-color;
+    &.is-link {
+      color: g.$default-text;
+      border: transparent;
+      background-color: transparent;
     }
+  }
+  &-success {
+    background-color: g.$success;
+    color: g.$success-text;
+    border-color: g.$success;
+    &.is-plain {
+      color: g.$success;
+    }
+    &.is-plain:hover {
+      color: #fff;
+      background-color: g.$success;
+    }
+    &.is-link {
+      color: g.$success;
+      border: transparent;
+      background-color: transparent;
+    }
+  }
+  &-primary {
+    background-color: g.$primary;
+    color: g.$success-text;
+    border-color: g.$primary;
+    &.is-plain {
+      color: g.$primary;
+    }
+    &.is-plain:hover {
+      color: #fff;
+      background-color: g.$primary;
+    }
+    &.is-link {
+      color: g.$primary;
+      border: transparent;
+      background-color: transparent;
+    }
+  }
+  &-error {
+    background-color: g.$error;
+    color: g.$success-text;
+    border-color: g.$error;
+    &.is-plain {
+      color: g.$error;
+    }
+    &.is-plain:hover {
+      color: #fff;
+      background-color: g.$error;
+    }
+    &.is-link {
+      color: g.$error;
+      border: transparent;
+      background-color: transparent;
+    }
+  }
+  &-warning {
+    background-color: g.$warning;
+    color: g.$success-text;
+    border-color: g.$warning;
+    &.is-plain {
+      color: g.$warning;
+    }
+    &.is-plain:hover {
+      color: #fff;
+      background-color: g.$warning;
+    }
+    &.is-link {
+      color: g.$warning;
+      border: transparent;
+      background-color: transparent;
+    }
+  }
+  &-info {
+    background-color: g.$info;
+    color: g.$success-text;
+    border-color: g.$info;
+    &.is-plain {
+      color: g.$info;
+    }
+    &.is-plain:hover {
+      color: #fff;
+      background-color: g.$info;
+    }
+    &.is-link {
+      color: g.$info;
+      border: transparent;
+      background-color: transparent;
+    }
+  }
+  &.is-plain {
+    background-color: #fff;
+  }
+  &.is-round {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  &.is-disabled {
+    cursor: not-allowed;
+    background-image: none;
+    color: g.$success-text;
+    filter: brightness(93%);
+  }
+}
+.button:hover{
+    filter: brightness(95%);
 }

@@ -1,142 +1,92 @@
 @use '../../style/globals.scss' as g;
 
-// 提取公共按钮样式
+// 定义按钮类型的颜色配置
+$button-colors: (
+    default: (color: g.$default-text, bg: #fff, border: g.$default),
+    success: (color: g.$success-text, bg: g.$success, border: g.$success),
+    primary: (color: g.$success-text, bg: g.$primary, border: g.$primary),
+    error: (color: g.$success-text, bg: g.$error, border: g.$error),
+    warning: (color: g.$success-text, bg: g.$warning, border: g.$warning),
+    info: (color: g.$success-text, bg: g.$info, border: g.$info)
+);
+
+// 公共按钮样式
 %button-base {
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  border: 1px solid;
-  margin: 2px 6px;
-  box-sizing: border-box;
-  background-color: #fff;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid;
+    margin: 2px 6px;
+    box-sizing: border-box;
+    background-color: #fff;
 }
 
-.button {
-  @extend %button-base;
-  &-large {
-    padding: 12px 19px;
-    font-size: 14px;
-  }
-  &-small {
-    padding: 5px 11px;
-    font-size: 12px;
-  }
-  &-default {
-    color: g.$default-text;
-    border-color: g.$default;
-    &.is-plain {
-      color: g.$default-text;
-    }
-    &.is-plain:hover {
-      color: #fff;
-      background-color: g.$default-text;
-    }
-    &.is-link {
-      color: g.$default-text;
-      border: transparent;
-      background-color: transparent;
-    }
-  }
-  &-success {
-    background-color: g.$success;
-    color: g.$success-text;
-    border-color: g.$success;
-    &.is-plain {
-      color: g.$success;
-    }
-    &.is-plain:hover {
-      color: #fff;
-      background-color: g.$success;
-    }
-    &.is-link {
-      color: g.$success;
-      border: transparent;
-      background-color: transparent;
-    }
-  }
-  &-primary {
-    background-color: g.$primary;
-    color: g.$success-text;
-    border-color: g.$primary;
-    &.is-plain {
-      color: g.$primary;
-    }
-    &.is-plain:hover {
-      color: #fff;
-      background-color: g.$primary;
-    }
-    &.is-link {
-      color: g.$primary;
-      border: transparent;
-      background-color: transparent;
-    }
-  }
-  &-error {
-    background-color: g.$error;
-    color: g.$success-text;
-    border-color: g.$error;
-    &.is-plain {
-      color: g.$error;
-    }
-    &.is-plain:hover {
-      color: #fff;
-      background-color: g.$error;
-    }
-    &.is-link {
-      color: g.$error;
-      border: transparent;
-      background-color: transparent;
-    }
-  }
-  &-warning {
-    background-color: g.$warning;
-    color: g.$success-text;
-    border-color: g.$warning;
-    &.is-plain {
-      color: g.$warning;
-    }
-    &.is-plain:hover {
-      color: #fff;
-      background-color: g.$warning;
-    }
-    &.is-link {
-      color: g.$warning;
-      border: transparent;
-      background-color: transparent;
-    }
-  }
-  &-info {
-    background-color: g.$info;
-    color: g.$success-text;
-    border-color: g.$info;
-    &.is-plain {
-      color: g.$info;
-    }
-    &.is-plain:hover {
-      color: #fff;
-      background-color: g.$info;
-    }
-    &.is-link {
-      color: g.$info;
-      border: transparent;
-      background-color: transparent;
-    }
-  }
-  &.is-plain {
-    background-color: #fff;
-  }
-  &.is-round {
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  &.is-disabled {
-    cursor: not-allowed;
-    background-image: none;
-    // color: g.$success-text;
-    filter: brightness(93%);
-  }
+// 按钮大小样式
+@mixin button-size($padding, $font-size) {
+    padding: $padding;
+    font-size: $font-size;
 }
-.button:hover{
-    filter: brightness(95%);
+
+// 通用的按钮状态样式
+@mixin button-state($color, $bg, $border) {
+    background-color: $bg;
+    color: $color;
+    border-color: $border;
+
+    &.is-plain {
+        color: $border;
+        background-color: #fff;
+
+        &:hover {
+            color: #fff;
+            background-color: $border;
+        }
+    }
+
+    &.is-link {
+        color: $border;
+        border: transparent;
+        background-color: transparent;
+    }
+}
+
+// 按钮禁用样式
+.button {
+    @extend %button-base;
+
+    // 生成不同类型的按钮
+    @each $name, $values in $button-colors {
+        &-#{$name} {
+            @include button-state(map-get($values, color),
+                map-get($values, bg),
+                map-get($values, border));
+        }
+    }
+
+    // 按钮大小
+    &-large {
+        @include button-size(12px 19px, 14px);
+    }
+
+    &-small {
+        @include button-size(5px 11px, 12px);
+    }
+
+    // 其他样式
+    &.is-round {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    &.is-disabled {
+        cursor: not-allowed;
+        background-image: none;
+        filter: brightness(93%);
+    }
+
+    // Hover 样式
+    &:hover:not(.is-disabled) {
+        filter: brightness(95%);
+    }
 }

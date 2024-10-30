@@ -133,7 +133,7 @@
   &.is-disabled {
     cursor: not-allowed;
     background-image: none;
-    color: g.$success-text;
+    // color: g.$success-text;
     filter: brightness(93%);
   }
 }

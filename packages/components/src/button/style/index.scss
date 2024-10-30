@@ -1,3 +1,4 @@
+@use 'sass:map'; // 导入 Sass 的 map 模块
 @use '../../style/globals.scss' as g;
 
 // 定义按钮类型的颜色配置
@@ -51,16 +52,17 @@ $button-colors: (
     }
 }
 
-// 按钮禁用样式
+// 按钮组件样式
 .button {
     @extend %button-base;
 
     // 生成不同类型的按钮
     @each $name, $values in $button-colors {
         &-#{$name} {
-            @include button-state(map-get($values, color),
-                map-get($values, bg),
-                map-get($values, border));
+            @include button-state(map.get($values, 'color'), // 使用 map.get() 代替 map-get()
+                map.get($values, 'bg'), // 使用 map.get()
+                map.get($values, 'border') // 使用 map.get()
+            );
         }
     }
 
@@ -73,12 +75,13 @@ $button-colors: (
         @include button-size(5px 11px, 12px);
     }
 
-    // 其他样式
+    // 圆角样式
     &.is-round {
         border-radius: 16px;
         overflow: hidden;
     }
 
+    // 禁用样式
     &.is-disabled {
         cursor: not-allowed;
         background-image: none;

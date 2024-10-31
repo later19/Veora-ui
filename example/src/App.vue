@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import { VButton, VIcon } from 'veora-ui'
+import { VButton, VIcon, VButtonGroup } from 'veora-ui'
 </script>
 
 <template>
   <div>
+    <div>
+      <v-button-group>
+        <v-button type="primary">Button Primary</v-button>
+        <v-button type="error">Button Primary</v-button>
+        <v-button type="warning">Button Primary</v-button>
+      </v-button-group>
+    </div>
     <div>
       <v-button type="default">Button success</v-button>
       <v-button type="primary">Button Primary</v-button>
@@ -40,8 +47,8 @@ import { VButton, VIcon } from 'veora-ui'
       <v-button type="warning">Button Primary</v-button>
       <v-button type="info">Button Primary</v-button>
     </div>
-    <v-icon name="caozuo-gengduo"></v-icon>
-    <v-icon name="shuju"></v-icon>
+    <!-- <v-icon name="caozuo-gengduo"></v-icon>
+    <v-icon name="shuju"></v-icon> -->
   </div>
 </template>
 

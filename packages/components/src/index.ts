@@ -1,5 +1,6 @@
 import VButton from './button'
 import VIcon from './icon'
-export { VButton, VIcon }
+import VButtonGroup from './button/buttonGroup'
+export { VButton, VIcon, VButtonGroup }
 
-export default [VButton, VIcon]
+export default [VButton, VIcon, VButtonGroup]
